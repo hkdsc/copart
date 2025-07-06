@@ -33,7 +33,7 @@ Due to the large number of parts in some objects, we can discard some unimportan
 ```
 python partverse/get_infos.py --data_root ${DATA_PATH}
 ```
-We provide rendering script following [Trellis](https://github.com/microsoft/TRELLIS).
+We provide rendering script following [TRELLIS](https://github.com/microsoft/TRELLIS).
 ```
 python partverse/render.py --data_root ${DATA_PATH} --out_dir ${OUT_PATH} --num_views 8 --elevation 30
 ```
