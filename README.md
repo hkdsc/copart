@@ -52,7 +52,7 @@ python partverse/get_text_caption.py --data_root ${DATA_PATH} --render_root ${RE
 @article{dong2025copart,
   title={From One to More: Contextual Part Latents for 3D Generation},
   author={Shaocong Dong, Lihe Ding, Xiao Chen, Yaokun Li, Yuxin WANG, Yucheng Wang, Qi WANG, Jaehyeok Kim, Chenjian Gao, Zhanpeng Huang, Zibin Wang, Tianfan Xue, Dan Xu},
-  journal={arXiv preprint arXiv:},
+  booktitle={ICCV},
   year={2025}
 }
 ```
