@@ -5,7 +5,7 @@
 
 </div>
 
-We present a new part-based 3D generation framework, *CoPart*, which represents a 3D object with multiple contextual part latents and simultaneously generates coherent 3D parts. And We are pleased to release the first large-scale 3D object part dataset *PartVerse* that has been manually annotated.
+We present a new part-based 3D generation framework, *CoPart*, which represents a 3D object with multiple contextual part latents and simultaneously generates coherent 3D parts. And we are pleased to release the first large-scale 3D object part dataset *PartVerse* that has been manually annotated.
 
 ![image_1](assets/data_teaser.png)
 
