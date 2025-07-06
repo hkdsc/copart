@@ -1,6 +1,6 @@
 <div align="center">
 
-# From One to More: Contextual Part Latents for 3D Generation
+# From One to More: Contextual Part Latents for 3D Generation (ICCV 2025)
 ## [arXiv Preprint](https://arxiv.org/) | [Project](https://hkdsc.github.io/project/copart/) | [Dataset](https://huggingface.co/) 
 
 </div>
