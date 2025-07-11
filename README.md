@@ -18,30 +18,31 @@ generate text caption” to produce part-level data.*
 
 ## Download & Usage
 You can download the PartVerse dataset from [Google Drive](https://drive.google.com/drive/folders/11pl0yw-tjkYutPwpnv1ZeQvIEW7WkBSP) or [BaiduYun](https://drive.google.com/drive/folders/11pl0yw-tjkYutPwpnv1ZeQvIEW7WkBSP). 
-The file system after decompressing the dataset is as follows:
+The data directory after decompressing the dataset should be as follows:
 ```
 dataset/
-├── textureld_part_glbs/  
+├── textured_part_glbs/  
 ├── normalized_glbs/    
-└── text_caption.json       
+├── anno_infos/    
+└── text_captions.json       
 ```
-- `textureld_part_glbs` contains textured 3D meshes for each decomposed part of the objects. Each file is stored in the GLB format. 
-- `normalized_glbs` provides the complete, normalized 3D mesh of each object in GLB format. These are aligned with the part-level meshes and can be used for holistic shape analysis or comparison. 
-- `text_caption.json` stores descriptive text captions for each part, automatically generated using a Vision-Language Model (VLM).
+- `textureld_part_glbs` contains textured 3D meshes for each decomposed part of the objects. Each file is stored in the GLB format.
+- `normalized_glbs` provides the complete, normalized 3D mesh of each object in GLB format. These are aligned with the part-level meshes and can be used for holistic shape analysis or comparison.
+- `anno_infos` provides files that can be used for generating auxiliary information of parts.
+- `text_captions.json` stores descriptive text captions for each part, automatically generated using a Vision-Language Model (VLM).
 
-Due to the large number of parts in some objects, we can discard some unimportant parts (such as a screw, etc.). We provide `partverse/get_infos.py` to process the data. By running it, we can obtain the statistical information of the parts and the priority of discarding them.
+Due to the large number of parts in some objects, we can discard some unimportant parts (such as a screw, etc.). We provide `partverse/get_infos.py` to process the data. By running it, you can obtain (1) some statistical information of the parts, (2) the priority of discarding them, (3) view of max overlap between full object and parts render. Please install [nvdiffrast](https://github.com/NVlabs/nvdiffrast) and [kaolin](https://github.com/NVIDIAGameWorks/kaolin) when use.
 ```
-python partverse/get_infos.py --data_root ${DATA_PATH}
+python partverse/get_infos.py --data_root ${DATA_PATH} --global_info_save_path ${SAVE_PATH} --max_visible_info_save_path ${SAVE_PATH}
 ```
-We provide rendering script following [TRELLIS](https://github.com/microsoft/TRELLIS).
+We provide rendering script following [TRELLIS](https://github.com/microsoft/TRELLIS). You can use `partverse/render_parts.py` to render `textured_part_glbs` (part objects) and `partverse/render_dir.py` to render `normalized_glbs` (whole objects), e.g.,
 ```
-python partverse/render.py --data_root ${DATA_PATH} --out_dir ${OUT_PATH} --num_views 8 --elevation 30
+python partverse/render_parts.py --textured_part_glbs_root ${PART_GLB_PATH} --out_dir ${OUT_PATH} --num_views 8 --elevation 30
 ```
-In addition, we also provide text caption code to facilitate users in customizing text prompts for their own models. 
+In addition, we also provide text caption code to facilitate users in customizing text prompts for their own models. For the VLM, we use [Qwen2.5-VL-32B](https://huggingface.co/Qwen/Qwen2.5-VL-32B-Instruct) now. You can replace to any VLM.
 ```
-python partverse/get_text_caption.py --data_root ${DATA_PATH} --render_root ${RENDER_PATH} --out_path ${OUT_PATH}
+python partverse/get_text_caption.py --raw_img_root ${FULL_OBJECT_IMG_PATH} --part_img_root ${PART_IMG_PATH} --info_file ${MAX_VIS_INFO_PATH} --output_file ${OUT_PATH} --vlm_ckpt_dir ${VLM_HF_DOWN_PATH}
 ```
-*Notice*: for the VLM, we use [Qwen2.5-VL-32B](https://huggingface.co/Qwen/Qwen2.5-VL-32B-Instruct) now. You can replace to any VLM.
 
 
 ## 🚩 News
