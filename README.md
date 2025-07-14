@@ -1,7 +1,7 @@
 <div align="center">
 
 # From One to More: Contextual Part Latents for 3D Generation (ICCV 2025)
-## [arXiv Preprint](https://arxiv.org/) | [Project](https://hkdsc.github.io/project/copart/) | [Dataset](https://huggingface.co/) 
+## [arXiv Preprint](https://arxiv.org/abs/2507.08772) | [Project](https://hkdsc.github.io/project/copart/) | [Dataset](https://huggingface.co/datasets/dscdyc/partverse) 
 
 </div>
 
@@ -17,7 +17,7 @@ generate text caption” to produce part-level data.*
 *The framework of CoPart operates as follows: Gaussian noise is added to part image and geometric tokens extracted from the VAE, which are then fed into 3D and 2D denoisers. Mutual guidance (a) is introduced to facilitate information exchange between the 3D and 2D modalities (via Cross-Modality Attention) as well as between different parts (via Cross-Part Attention). Additionally, (b) the 3D bounding boxes are treated as cube meshes, and the extracted box tokens are injected into the 3D denoiser through cross-attention. Simultaneously, the boxes are rendered into 2D images and injected into the 2D denoiser via ControlNet.* -->
 
 ## Download & Usage
-You can download the PartVerse dataset from [Google Drive](https://drive.google.com/drive/folders/11pl0yw-tjkYutPwpnv1ZeQvIEW7WkBSP) or [BaiduYun](https://drive.google.com/drive/folders/11pl0yw-tjkYutPwpnv1ZeQvIEW7WkBSP). 
+You can download the PartVerse dataset from [Google Drive](https://drive.google.com/drive/folders/11pl0yw-tjkYutPwpnv1ZeQvIEW7WkBSP), [Huggingface](https://huggingface.co/datasets/dscdyc/partverse/tree/main). 
 The data directory after decompressing the dataset should be as follows:
 ```
 dataset/
