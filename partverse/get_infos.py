@@ -14,12 +14,6 @@ import torchvision
 import flex_render
 import kaolin as kal
 
-anno_infos_root='/nvme/lihe/dataset/gobjaverse/tmp/parts'
-filter_ins_file = 'debug/partverse_valid_ins2.txt'
-with open(filter_ins_file, 'r') as f:
-    filter_ins = f.readlines()
-filter_ins = [d.strip() for d in filter_ins]
-
 def normalize_mesh(mesh: trimesh.Trimesh, rescale=1):
     bbox = mesh.bounding_box.bounds
     loc = (bbox[0] + bbox[1]) / 2
