@@ -106,7 +106,7 @@ def render_mesh(mesh, camera, iter_res, return_types = ["mask", "depth"], white_
     vertices_clip = (proj @ homogeneous_vecs.unsqueeze(-1)).squeeze(-1)
     faces_int = mesh.faces.int()
 
-    # NOTE(lihe): implement vertices interpolation
+    # Implement vertices interpolation
     mesh_v_feat = mesh.vertices
 
     rast, _ = dr.rasterize(
